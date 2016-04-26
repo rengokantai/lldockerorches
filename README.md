@@ -26,6 +26,8 @@ wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key a
 sudo apt-get update && sudo apt-get install dkms virtualbox-5.0
 vboxmanage --version
 ```
+
+```
 curl -L https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine && \
 chmod +x /usr/local/bin/docker-machine
 ```
@@ -130,4 +132,28 @@ exit
 clearup
 ```
 docker-compose stop
+```
+######multiple test
+see 
+```
+docker-compose up 
+docker ps
+docker exec -it 3a0a9b353bee /bin/bash
+cat /etc/hosts
+```
+
+#####cp 6
+######6-2 using .env
+######6-2 use docker-machine with docker-compose
+```
+docker-machine create -d digitalocean --digitalocean-access-token 123 name2
+docker-machine ls
+docker-machine env name2
+eval `docker-machine env name2`
+docker info
+docker-compose -f production-docker-compose.yml up -d
+docker-machine ls
+curl http://1.2.3.4/users
+curl (docker-machine ip name2)
+curl (docker-machine ip name2)/users
 ```

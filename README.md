@@ -157,3 +157,35 @@ curl http://1.2.3.4/users
 curl (docker-machine ip name2)
 curl (docker-machine ip name2)/users
 ```
+#####7
+######7-2 docker swarm
+```
+docker pull swarm
+docker run swarm //will get help list
+docker run swarm create
+``` 
+record the token! 123
+######7-3
+```
+docker-machine create -d digitalocean --digitalocean-access-token 123 --swarm --swarm-master --swarm-discovery token://123 mastername
+docker-machine create -d digitalocean --digitalocean-access-token 123 --swarm --swarm-discovery token://123 slavename
+docker-machine env --swarm mastername
+eval `docker-machine env --swarm mastername`  //just master, no slave
+docker info
+```
+#####8
+######1 strategy
+spread: EX: host1 has 2 containers, host2 has 1 container, the next will run on host2  
+random: 
+binback: opposite to spread, run as less hosts
+######2 using label
+```
+docker-machine create -d digitalocean --digitalocean-access-token 123 --swarm --engine-label disktype=ssd --swarm-discovery token://40 slavename2
+```
+######3 affinify
+```
+docker run -d -P nginx
+docker ps
+docker run -d -P -e affinity:image==nginx nginx
+docker ps
+```

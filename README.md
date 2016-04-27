@@ -189,3 +189,5 @@ docker ps
 docker run -d -P -e affinity:image==nginx nginx
 docker ps
 ```
+#####9 kubernetes
+Deprecated. To be continued

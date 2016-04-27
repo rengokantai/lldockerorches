@@ -18,6 +18,7 @@ docker build -t rengokantai/my
 trigger the build.
 #####4
 ######4.2
+[see here](https://github.com/rengokantai/lldockerorchesproj)
 install docker-machine
 first instll virtubox
 ```
@@ -86,6 +87,7 @@ docker ps
 docker stop 123
 ```
 ######using a db
+[see here](https://github.com/rengokantai/lldockerorchesproj52)
 docker-compose.yml
 ```
 database:
@@ -134,6 +136,7 @@ clearup
 docker-compose stop
 ```
 ######multiple test
+[see here](https://github.com/rengokantai/lldockerorchesproj53)
 see 
 ```
 docker-compose up 
@@ -145,6 +148,7 @@ cat /etc/hosts
 #####cp 6
 ######6-2 using .env
 ######6-2 use docker-machine with docker-compose
+[see here](https://github.com/rengokantai/lldockerorchesproj62)
 ```
 docker-machine create -d digitalocean --digitalocean-access-token 123 name2
 docker-machine ls
@@ -172,6 +176,13 @@ docker-machine create -d digitalocean --digitalocean-access-token 123 --swarm --
 docker-machine env --swarm mastername
 eval `docker-machine env --swarm mastername`  //just master, no slave
 docker info
+```
+cleanup
+```
+docker-machine stop mastername
+docker-machine stop slavename
+docker-machine rm mastername
+docker-machine rm slavename
 ```
 #####8
 ######1 strategy

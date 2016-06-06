@@ -62,7 +62,7 @@ curl `docker-machine ip name`
 curl -L https://github.com/docker/compose/releases/download/1.7.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 ```
 start:
-build the script name ```webservice.yml```
+build the script name ```docker-compose.yml```
 ```
 webservice:
 	build: . 
@@ -75,9 +75,17 @@ webservice:
 ```
 start:
 ```
-docker build webservice
-docker-compose up -d
+docker-compose run (-d) webservice
 ```
+build come part of service.
+```
+docker build webservice
+```
+run all!
+```
+docker-compose up -d  //run all service
+```
+test.
 ```
 curl localhost:3000
 ```
